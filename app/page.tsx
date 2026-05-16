@@ -6,13 +6,12 @@ import { content, Language } from "../lib/content";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
-// import About from "../components/About";
-import Awards from "../components/Awards";
 import MyCustomer from "../components/MyCustomer";
 // import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 import Partners from "../components/Partners";
+import About from "@/components/About";
 
 export default function LandingPage() {
   const [lang, setLang] = useState<Language>("la");
@@ -34,9 +33,8 @@ export default function LandingPage() {
       <Hero t={t} />
       <Partners />
       <Services t={t} />
-      {/* <About t={t} /> */}
-      <Awards t={t} />
-      <MyCustomer t={t} />
+      <About t={t} /> 
+      <MyCustomer />
       {/* <Contact t={t} /> */}
       <Footer />
     </div>

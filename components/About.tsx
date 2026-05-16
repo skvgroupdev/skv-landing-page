@@ -1,150 +1,176 @@
-import { Users, Heart, Eye } from "lucide-react";
-import Avatar_vong from "../public/images/avatar_vong.jpg";
-import Avatar_kun from "../public/images/avatar_kun.jpg";
-import Image from "next/image";
+import { CalendarDays, Crown, MapPin, Sparkles } from "lucide-react";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
+import AvatarKun from "../public/images/avatar_kun.jpg";
+import AvatarVong from "../public/images/avatar_vong.jpg";
+import Honglisa from "../public/images/honglisa.png";
+import Soulixai from "../public/images/soulixai.jpg";
 
-export default function About({ t }: { t: any }) {
-    const values = [
-        {
-            letter: "S",
-            word: "Synergy",
-            lao: "ຄວາມຮ່ວມມື",
-            desc: "ພະລັງແຫ່ງການຮ່ວມມືເພື່ອຄວາມສຳເລັດ.",
-            icon: Users,
-            color: "text-blue-500",
-            bg: "bg-blue-500/10",
-            border: "group-hover:border-blue-500",
+interface AboutCopy {
+    values: {
+        title: string;
+        desc: string;
+    };
+}
 
-        },
-        {
-            letter: "K",
-            word: "Kindred",
-            lao: "ສາຍສຳພັນ",
-            desc: "ສ້າງຄວາມຜູກພັນທີ່ແໜ້ນແຟ້ນ.",
-            icon: Heart,
-            color: "text-pink-500",
-            bg: "bg-pink-500/10",
-            border: "group-hover:border-pink-500",
+interface TeamMember {
+    name: string;
+    role: string;
+    note: string;
+    image: StaticImageData;
+    href?: string;
+    featured?: boolean;
+    badge?: "CEO" | "COO";
+    objectFit?: "cover" | "contain";
+}
 
-        },
-        {
-            letter: "V",
-            word: "Vision",
-            lao: "ວິໄສທັດ",
-            desc: "ມຸມມອງກວ້າງໄກເພື່ອອະນາຄົດ.",
-            icon: Eye,
-            color: "text-amber-500",
-            bg: "bg-amber-500/10",
-            border: "group-hover:border-amber-500",
-            avatar: Avatar_vong
-        }
-    ];
+const story = [
+    {
+        title: "ເລີ່ມຈາກສາລະວັນ",
+        desc: "ສຸ, ກັນ ແລະ ວົງ ເກີດ ແລະ ເຕີບໃຫຍ່ຢູ່ແຂວງສາລະວັນ ຮຽນນຳກັນຕັ້ງແຕ່ ປ.1 ຈົນຮອດມັດທະຍົມປາຍ.",
+        icon: MapPin,
+        color: "text-blue-600",
+        bg: "bg-blue-50",
+    },
+    {
+        title: "ຄວາມຝັນດຽວກັນ",
+        desc: "ຕອນຮຽນມັດທະຍົມປາຍ ພວກເຮົາເຄີຍໂອ້ລົມເລື່ອງອະນາຄົດ ແລະ ຮູ້ວ່າຢາກມີທຸລະກິດທີ່ຊ່ວຍຄົນອື່ນ ແລະ ພັດທະນາບ້ານເກີດ.",
+        icon: Sparkles,
+        color: "text-amber-500",
+        bg: "bg-amber-50",
+    },
+    {
+        title: "2019 - 2027",
+        desc: "ຕັ້ງແຕ່ປີ 2019 ພວກເຮົາແຍກຍ້າຍໄປເກັບກ່ຽວປະສົບການ. ໃນປີ 2027 ພວກເຮົາວາງແຜນກັບມາບ້ານເກີດ ແລະ ລຸຍເປົ້າໝາຍນີ້ຮ່ວມກັນ.",
+        icon: CalendarDays,
+        color: "text-emerald-600",
+        bg: "bg-emerald-50",
+    },
+];
+
+const teamMembers: TeamMember[] = [
+    {
+        name: "ສຸລິໄຊ ວິລະສິດ",
+        role: "CEO / Lead Developer",
+        note: "",
+        image: Soulixai,
+        featured: true,
+        badge: "CEO",
+    },
+    {
+        name: "ການັນດາ ແກ້ວທ່ອນຈັນ",
+        role: "Consultant & Planner",
+        note: "",
+        image: AvatarKun,
+        badge: "COO",
+    },
+    {
+        name: "ວົງວິໄລ ຈູນລະນີ",
+        role: "Senior Marketing",
+        note: "",
+        image: AvatarVong,
+        href: "",
+        badge: "COO",
+    },
+    {
+        name: "ຫົງລິສາ",
+        role: "Graphic Design",
+        note: "",
+        image: Honglisa,
+    },
+];
+
+function TeamCard({ member }: { member: TeamMember }) {
+    const card = (
+        <article
+            className={
+                member.featured
+                    ? "group rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-white p-4 shadow-sm transition-all hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/70"
+                    : "group rounded-3xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/70"
+            }
+        >
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-50">
+                <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className={member.objectFit === "contain" ? "object-contain p-8" : "object-cover"}
+                    sizes="(max-width: 768px) 80vw, 25vw"
+                />
+                {member.badge && (
+                    <div className={`absolute left-3 top-3 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold text-white shadow-sm ${member.badge === "CEO" ? "bg-blue-600" : "bg-slate-900/85 backdrop-blur-sm"}`}>
+                        {member.badge === "CEO" && <Crown size={14} />}
+                        {member.badge}
+                    </div>
+                )}
+            </div>
+
+            <div className="pt-4">
+                <div>
+                    <h3 className="text-lg font-bold text-slate-950">
+                        {member.name}
+                    </h3>
+                    <p className="mt-1 text-sm font-semibold text-blue-600">{member.role}</p>
+                </div>
+                <p className="text-sm leading-7 text-slate-600">{member.note}</p>
+            </div>
+        </article>
+    );
+
+    if (!member.href) {
+        return card;
+    }
 
     return (
-        <section id="about" className="py-24 bg-[#0f1115] relative overflow-hidden">
-            {/* Background Decorations */}
-            <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-[#12141a] to-transparent pointer-events-none"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <Link href={member.href} className="block">
+            {card}
+        </Link>
+    );
+}
 
-            <div className="container mx-auto px-6 relative z-10">
-                {/* Header */}
-                <div className="text-center mb-20">
-                    {/* <span className="text-amber-500 text-sm font-bold tracking-widest uppercase mb-2 block"></span> */}
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">ພວກເຮົາແມ່ນໃຜ?</h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                        SKV Group ເກີດຈາກການລວມຕົວຂອງສາມສ່ຽວທີ່ມີຄວາມຝັນຢາກສ້າງສິ່ງທີ່ມີຄຸນນະພາບ ແລະ ຕອບໂຈດຄວາມຕ້ອງການຂອງທຸລະກິດໃນປັດຈຸບັນ ເພື່ອມາຮັບໃຊ້ສັງຄົມ.
+export default function About({ t }: { t: AboutCopy }) {
+    return (
+        <section id="about" className="bg-white py-16 md:py-20">
+            <div className="container max-w-7xl mx-auto px-6">
+                <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+                    <div>
+                        <p className="text-sm font-semibold text-blue-600">About SKV Group</p>
+                        <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight text-slate-950">
+                            {t.values.title}
+                        </h2>
+                    </div>
+                    <p className="text-base md:text-lg leading-8 text-slate-600">
+                        {t.values.desc}
                     </p>
-
                 </div>
 
-                {/* SKV Values Grid */}
-                <div className="grid grid-cols-3 gap-3 md:gap-8 mb-16 md:mb-32">
-                    {values.map((item, index) => (
-                        <div key={index} className={`group relative p-4 md:p-10 rounded-xl md:rounded-3xl bg-slate-900/40 border border-slate-800 hover:-translate-y-2 transition-all duration-500 overflow-hidden ${item.border}`}>
-
-                            {/* Abstract Background Shape */}
-                            <div className={`absolute top-0 right-0 w-64 h-64 ${item.bg} rounded-full blur-[80px] opacity-0 group-hover:opacity-30 transition-opacity duration-700`}></div>
-
-                            {/* Content */}
-                            <div className="relative z-10">
-                                {/* Letter & Icon Header */}
-                                <div className="flex justify-between items-start mb-4 md:mb-8">
-                                    <span className={`text-5xl md:text-8xl font-black ${item.color} opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 origin-left select-none`}>
-                                        {item.letter}
-                                    </span>
-                                    <div className={`w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl ${item.bg} flex items-center justify-center ${item.color} group-hover:rotate-12 transition-transform duration-500`}>
-                                        <item.icon className="w-4 h-4 md:w-7 md:h-7" />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-1 md:space-y-3">
-                                    <h3 className="text-lg md:text-3xl font-bold text-white group-hover:translate-x-1 transition-transform duration-300">
-                                        {item.word}
-                                    </h3>
-                                    <p className={`text-[0.6rem] md:text-sm font-bold tracking-widest uppercase ${item.color}`}>
-                                        {item.lao}
-                                    </p>
-                                    <div className="h-px w-8 md:w-12 bg-slate-700 group-hover:w-full transition-all duration-500 ease-out my-2 md:my-4"></div>
-                                    <p className="text-slate-400 leading-relaxed text-xs md:text-lg">
-                                        {item.desc}
-                                    </p>
-                                </div>
+                <div className="mt-10 grid gap-4 md:grid-cols-3">
+                    {story.map((item) => (
+                        <div key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                            <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${item.bg} ${item.color}`}>
+                                    <item.icon size={22} />
                             </div>
+                            <h3 className="mt-6 text-xl font-bold text-slate-950">{item.title}</h3>
+                            <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
                         </div>
                     ))}
                 </div>
 
-
-                <div className="relative">
-                    <div className="text-center">
-                        {/* <span className="text-amber-500 text-sm font-bold tracking-widest uppercase mb-2 block">Our Team</span> */}
-                        <h2 className="text-amber-500 text-3xl md:text-4xl font-bold">OUR TEAM</h2>
+                <div className="mt-14">
+                    <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                        <div>
+                            <p className="text-sm font-semibold text-blue-600">Our Team</p>
+                            <h2 className="mt-2 text-3xl md:text-4xl font-bold text-slate-950">ທີມງານຂອງພວກເຮົາ</h2>
+                        </div>
+                        <p className="max-w-xl text-sm leading-7 text-slate-600">
+                            ທີມນ້ອຍໆ ທີ່ເຮັດວຽກຫຼາຍດ້ານ: ວາງແຜນ, ພັດທະນາລະບົບ, ການຕະຫຼາດ ແລະ ຊັບພອດລູກຄ້າ.
+                        </p>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3 md:gap-6 items-center pt-10 max-w-5xl mx-auto">
-
-
-                        {/* kun - Left on Desktop */}
-                        <div className="group relative order-1 mt-4 md:mt-8">
-                            <div className="relative z-10 bg-slate-800 rounded-lg md:rounded-2xl p-0.5 md:p-1 pb-0 overflow-hidden border border-slate-700 hover:border-pink-500/50 transition-colors duration-300">
-                                <div className="aspect-[3/4] bg-slate-900 rounded-t-lg md:rounded-t-xl overflow-hidden relative group-hover:bg-slate-800/50 transition-colors">
-                                    <Image
-                                        src={Avatar_kun}
-                                        alt="Avatar"
-                                        fill
-                                        className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-500"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
-                                    />
-                                    <div className="absolute bottom-0 left-0 w-full p-2 md:p-6 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent pt-12 md:pt-20">
-                                        <h3 className="text-xs md:text-xl font-bold text-white mb-0.5 md:mb-1 leading-tight">ການັນດາ<br className="md:hidden" /> ແກ້ວທ່ອນຈັນ</h3>
-                                        <p className="text-pink-400 text-[0.6rem] md:text-sm font-medium">ນັກວາງແຜນ</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=" bg-pink-500/20 rounded-[2rem] opacity-0 group-hover:opacity-40 blur-xl transition-opacity duration-500 -z-10"></div>
-                        </div>
-
-                        {/* vong - Right on Desktop */}
-                        <Link href={"/team/vongchln"} className="group relative order-3 md:order-3 mt-4 md:mt-8">
-                            <div className="relative z-10 bg-slate-800 rounded-lg md:rounded-2xl p-0.5 md:p-1 pb-0 overflow-hidden border border-slate-700 hover:border-blue-500/50 transition-colors duration-300">
-                                <div className="aspect-[3/4] bg-slate-900 rounded-t-lg md:rounded-t-xl overflow-hidden relative group-hover:bg-slate-800/50 transition-colors">
-                                    <Image
-                                        src={Avatar_vong}
-                                        alt="Avatar"
-                                        fill
-                                        className="object-cover opacity-90 group-hover:opacity-100 transition-all duration-500"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
-                                    />
-                                    <div className="absolute bottom-0 left-0 w-full p-2 md:p-6 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent pt-12 md:pt-20">
-                                        <h3 className="text-xs md:text-xl font-bold text-white mb-0.5 md:mb-1 leading-tight">ວົງວິໄລ<br className="md:hidden" /> ຈູນລະນີ</h3>
-                                        <p className="text-blue-400 text-[0.6rem] md:text-sm font-medium">ນັກການຕະຫຼາດ</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=" bg-blue-500/20 rounded-[2rem] opacity-0 group-hover:opacity-40 blur-xl transition-opacity duration-500 -z-10"></div>
-                        </Link>
-
+                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                        {teamMembers.map((member) => (
+                            <TeamCard key={member.name} member={member} />
+                        ))}
                     </div>
                 </div>
             </div>

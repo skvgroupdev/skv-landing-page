@@ -1,20 +1,28 @@
 import { MetadataRoute } from 'next'
 
+const baseUrl = 'https://www.skvlao.com'
+
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://www.skvlao.com'
+    const lastModified = new Date()
+
     return [
         {
             url: baseUrl,
-            lastModified: new Date(),
-            changeFrequency: 'yearly',
+            lastModified,
+            changeFrequency: 'monthly',
             priority: 1,
         },
         {
             url: `${baseUrl}/pos`,
-            lastModified: new Date(),
+            lastModified,
             changeFrequency: 'monthly',
             priority: 0.9,
         },
-        // Add other routes here if you have them, e.g., /services, /about
+        {
+            url: `${baseUrl}/team/vongchln`,
+            lastModified,
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        },
     ]
 }

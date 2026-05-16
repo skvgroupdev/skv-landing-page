@@ -1,4 +1,4 @@
-import { LayoutGrid, Phone, BarChart3, ShoppingCart, Monitor } from "lucide-react";
+import { BarChart3, ShoppingCart, Monitor, Palette } from "lucide-react";
 
 export type Language = "en" | "la";
 
@@ -60,7 +60,8 @@ export const content = {
           icon: BarChart3,
           color: "text-blue-500",
           bg: "bg-blue-500/10",
-          border: "group-hover:border-blue-500/50"
+          border: "group-hover:border-blue-500/50",
+          link: "#"
         },
         {
           title: "POS System Shop Manager",
@@ -68,7 +69,8 @@ export const content = {
           icon: Monitor,
           color: "text-amber-500",
           bg: "bg-amber-500/10",
-          border: "group-hover:border-amber-500/50"
+          border: "group-hover:border-amber-500/50",
+          link: "/pos"
         },
         {
           title: "Ecommerce Website",
@@ -76,45 +78,23 @@ export const content = {
           icon: ShoppingCart,
           color: "text-green-500",
           bg: "bg-green-500/10",
-          border: "group-hover:border-green-500/50"
+          border: "group-hover:border-green-500/50",
+          link: "#"
+        },
+        {
+          title: "Logo & Advertising Sign Design",
+          desc: "Create logos, brand visuals, and advertising signs that help your business look professional and memorable.",
+          icon: Palette,
+          color: "text-pink-500",
+          bg: "bg-pink-500/10",
+          border: "group-hover:border-pink-500/50",
+          link: "#"
         },
       ]
     },
     values: {
-      title: "Who Are We?",
-      desc: "SKV Group was born from the gathering of three friends with a dream to create quality things that meet the needs of current businesses to serve society.",
-      items: [
-        {
-          letter: "S",
-          word: "Synergy",
-          sub: "Collaboration",
-          desc: "Collaborative power to achieve more together.",
-          icon: "Users",
-          color: "text-blue-500",
-          bg: "bg-blue-500/10",
-          border: "group-hover:border-blue-500"
-        },
-        {
-          letter: "K",
-          word: "Kindred",
-          sub: "Relationship",
-          desc: "Building strong, kindred relationships.",
-          icon: "Heart",
-          color: "text-pink-500",
-          bg: "bg-pink-500/10",
-          border: "group-hover:border-pink-500"
-        },
-        {
-          letter: "V",
-          word: "Vision",
-          sub: "Foresight",
-          desc: "Clear foresight for future innovations.",
-          icon: "Eye",
-          color: "text-amber-500",
-          bg: "bg-amber-500/10",
-          border: "group-hover:border-amber-500"
-        }
-      ]
+      title: "The Story of SKV Group",
+      desc: "SKV Group began with three childhood friends from Salavan who shared one dream: to build a business that helps others and brings something better back to their hometown."
     },
     contact: {
       title: "Want to Grow Your Business?",
@@ -179,11 +159,11 @@ export const content = {
     },
     services: {
       title: "ບໍລິການຂອງພວກເຮົາ",
-      subtitle: "ພວກເຮົາພ້ອມໃຫ້ບໍລິການທີ່ດີທີ່ສຸດເພື່ອຊ່ວຍໃຫ້ທຸລະກິດຂອງທ່ານເຕີບໃຫຍ່ ແລະ ປະສົບຜົນສຳເລັດ",
+      subtitle: "ເຮົາເຮັດວຽກກັບຮ້ານຄ້າ ແລະ ທຸລະກິດທ້ອງຖິ່ນ ຕັ້ງແຕ່ວາງແຜນ, ອອກແບບ ຈົນເຖິງເຄື່ອງມືຊ່ວຍຂາຍ.",
       items: [
         {
-          title: "ໃຫ້ຄຳປືກສາການຕະຫຼາດ",
-          desc: "ຊ່ວຍວິເຄາະ ແລະ ວາງແຜນການຕະຫຼາດ ເພື່ອເພີ່ມຍອດຂາຍ ແລະ ຂະຫຍາຍຖານລູກຄ້າໃຫ້ທຸລະກິດຂອງທ່ານ ດ້ວຍທີມງານມືອາຊີບ.",
+          title: "ປຶກສາການຕະຫຼາດ",
+          desc: "ເບິ່ງຈຸດແຂງຂອງຮ້ານ, ກຳນົດກຸ່ມລູກຄ້າ ແລະ ວາງແຜນໂປຣໂມຊັນໃຫ້ເໝາະກັບຕະຫຼາດຈິງ.",
           icon: BarChart3,
           color: "text-blue-500",
           bg: "bg-blue-500/10",
@@ -191,60 +171,38 @@ export const content = {
           link: "#"
         },
         {
-          title: "POS system Shop Manager",
-          desc: "ລະບົບຈັດການຮ້ານຄ້າຄົບວົງຈອນ ຄຸ້ມຄອງສະຕັອກ ບັນທຶກການຂາຍ ແລະ ລາຍງານຜົນໄດ້ຢ່າງຖືກຕ້ອງ ໃຊ້ງານງ່າຍ.",
+          title: "ລະບົບ POS",
+          desc: "ຊ່ວຍຂາຍໜ້າຮ້ານ, ເບິ່ງສະຕັອກ, ສະຫຼຸບຍອດຂາຍ ແລະ ຮູ້ກຳໄລໄດ້ງ່າຍຂຶ້ນ.",
           icon: Monitor,
+          logo: "/images/logo-no-bg.png",
           color: "text-amber-500",
           bg: "bg-amber-500/10",
           border: "group-hover:border-amber-500/50",
           link: "/pos"
         },
         {
-          title: "ຫນ້າເວັບ Ecomerce ຂາຍອອນລາຍ",
-          desc: "ອອກແບບ ແລະ ພັດທະນາເວັບໄຊທ໌ຂາຍສິນຄ້າອອນລາຍ ທີ່ທັນສະໄໝ ຮອງຮັບການຊຳລະເງິນ ແລະ ການເຊື່ອມຕໍ່ລະບົບຂົນສົ່ງ.",
+          title: "ອອກແບບເວັບ Ecommerce",
+          desc: "ສ້າງໜ້າຮ້ານອອນລາຍໃຫ້ເບິ່ງໜ້າເຊື່ອຖື ຈັດການສິນຄ້າໄດ້ ແລະ ພ້ອມຕໍ່ຍອດການຂາຍ.",
           icon: ShoppingCart,
           color: "text-green-500",
           bg: "bg-green-500/10",
           border: "group-hover:border-green-500/50",
           link: "#"
         },
+        {
+          title: "ອອກແບບໂລໂກ້ ແລະ ປ້າຍໂຄສະນາ",
+          desc: "ອອກແບບໃຫ້ຈື່ງ່າຍ ໃຊ້ໄດ້ທັງໜ້າຮ້ານ, Facebook, ປ້າຍ ແລະ ສື່ໂຄສະນາອື່ນໆ.",
+          icon: Palette,
+          color: "text-pink-500",
+          bg: "bg-pink-500/10",
+          border: "group-hover:border-pink-500/50",
+          link: "#"
+        },
       ]
     },
     values: {
-      title: "ພວກເຮົາແມ່ນໃຜ?",
-      desc: "SKV Group ເກີດຈາກການລວມຕົວຂອງສາມສ່ຽວທີ່ມີຄວາມຝັນຢາກສ້າງສິ່ງທີ່ມີຄຸນນະພາບ ແລະ ຕອບໂຈດຄວາມຕ້ອງການຂອງທຸລະກິດໃນປັດຈຸບັນ ເພື່ອມາຮັບໃຊ້ສັງຄົມ.",
-      items: [
-        {
-          letter: "S",
-          word: "Synergy",
-          sub: "ຄວາມຮ່ວມມື",
-          desc: "ພະລັງແຫ່ງການຮ່ວມມືເພື່ອຄວາມສຳເລັດ.",
-          icon: "Users",
-          color: "text-blue-500",
-          bg: "bg-blue-500/10",
-          border: "group-hover:border-blue-500"
-        },
-        {
-          letter: "K",
-          word: "Kindred",
-          sub: "ສາຍສຳພັນ",
-          desc: "ສ້າງຄວາມຜູກພັນທີ່ແໜ້ນແຟ້ນ.",
-          icon: "Heart",
-          color: "text-pink-500",
-          bg: "bg-pink-500/10",
-          border: "group-hover:border-pink-500"
-        },
-        {
-          letter: "V",
-          word: "Vision",
-          sub: "ວິໄສທັດ",
-          desc: "ມຸມມອງກວ້າງໄກເພື່ອອະນາຄົດ.",
-          icon: "Eye",
-          color: "text-amber-500",
-          bg: "bg-amber-500/10",
-          border: "group-hover:border-amber-500"
-        }
-      ]
+      title: "ເລື່ອງລາວຂອງ SKV GROUP",
+      desc: "SKV GROUP ເກີດຈາກເດັກນ້ອຍສາມຄົນ: ສຸ, ກັນ ແລະ ວົງ. ພວກເຮົາເກີດ ແລະ ເຕີບໃຫຍ່ຢູ່ແຂວງສາລະວັນ, ຮຽນນຳກັນຕັ້ງແຕ່ ປ.1 ຈົນຮອດມັດທະຍົມປາຍ. ພວກເຮົາມີຄວາມຝັນຄືກັນ: ຢາກສ້າງທຸລະກິດທີ່ຊ່ວຍຄົນອື່ນ ແລະ ພັດທະນາບ້ານເກີດໃຫ້ດີຂຶ້ນ."
     },
     contact: {
       title: "ຕ້ອງການຂະຫຍາຍທຸລະກິດຂອງທ່ານບໍ?",

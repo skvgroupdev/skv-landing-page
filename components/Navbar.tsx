@@ -1,17 +1,30 @@
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Language } from "../lib/content";
 import Image from "next/image";
 interface NavbarProps {
-    t: any;
+    t: {
+        nav: {
+            services: string;
+            portfolio: string;
+            about: string;
+            contact: string;
+        };
+    };
     lang: Language;
     toggleLang: () => void;
     scrolled: boolean;
 }
 
-export default function Navbar({ t, lang, toggleLang, scrolled }: NavbarProps) {
+export default function Navbar({ t, scrolled }: NavbarProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const navItems = [
+        { href: "#services", label: t.nav.services },
+        { href: "#about", label: t.nav.about },
+        { href: "#portfolio", label: t.nav.portfolio },
+        { href: "#contact", label: t.nav.contact },
+    ];
 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md py-4 shadow-sm border-b border-slate-100" : "bg-transparent py-6 border-b border-white/10"}`}>
@@ -24,16 +37,11 @@ export default function Navbar({ t, lang, toggleLang, scrolled }: NavbarProps) {
 
                 {/* Desktop Nav */}
                 <div className={`hidden md:flex items-center gap-8 text-sm font-medium ${scrolled ? "text-slate-600" : "text-blue-100"}`}>
-                    {/* <Link href="" className="hover:text-blue-600 transition-colors">{t.nav.products}</Link> */}
-                    <Link href="#services" className={`hover:text-blue-500 transition-colors ${!scrolled && "hover:text-white"}`}>ບໍລິການ</Link>
-                    <Link href="#portfolio" className={`hover:text-blue-500 transition-colors ${!scrolled && "hover:text-white"}`}>ຜົນງານ</Link>
-
-                    <Link href="#about" className={`hover:text-blue-500 transition-colors ${!scrolled && "hover:text-white"}`}>{t.nav.about}</Link>
-                    <Link href="#contact" className={`hover:text-blue-500 transition-colors ${!scrolled && "hover:text-white"}`}>{t.nav.contact}</Link>
-                    <button onClick={toggleLang} className={`flex items-center gap-1.5 px-3 py-1 rounded-full border transition-all ${scrolled ? "border-slate-200 hover:border-blue-500 hover:text-blue-600" : "border-white/20 hover:border-white text-blue-100 hover:text-white"}`}>
-                        <Globe className="w-3.5 h-3.5" />
-                        <span className="uppercase text-xs tracking-widest">{lang}</span>
-                    </button>
+                    {navItems.map((item) => (
+                        <Link key={item.href} href={item.href} className={`hover:text-blue-500 transition-colors ${!scrolled && "hover:text-white"}`}>
+                            {item.label}
+                        </Link>
+                    ))}
                 </div>
 
                 {/* Mobile Toggle */}
@@ -45,11 +53,14 @@ export default function Navbar({ t, lang, toggleLang, scrolled }: NavbarProps) {
             {/* Mobile Menu */}
             {mobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 p-6 flex flex-col gap-4 text-center shadow-xl">
-                    <Link href="/pos" onClick={() => setMobileMenuOpen(false)} className="text-slate-600 hover:text-blue-600">{t.nav.products}</Link>
-                    <Link href="#services" onClick={() => setMobileMenuOpen(false)} className="text-slate-600 hover:text-blue-600">{t.nav.about}</Link>
-                    <Link href="#team" onClick={() => setMobileMenuOpen(false)} className="text-slate-600 hover:text-blue-600">{t.nav.team}</Link>
-                    <Link href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-slate-600 hover:text-blue-600">{t.nav.contact}</Link>
-                    <button onClick={() => { toggleLang(); setMobileMenuOpen(false); }} className="mx-auto text-blue-600 uppercase font-bold">{lang}</button>
+                    {navItems.map((item) => (
+                        <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-slate-600 hover:text-blue-600">
+                            {item.label}
+                        </Link>
+                    ))}
+                    <Link href="/pos" onClick={() => setMobileMenuOpen(false)} className="mx-auto rounded-full bg-blue-600 px-5 py-2 text-sm font-bold text-white hover:bg-blue-700">
+                        SKV POS
+                    </Link>
                 </div>
             )}
         </nav>

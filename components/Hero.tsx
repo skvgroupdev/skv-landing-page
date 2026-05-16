@@ -1,11 +1,23 @@
-import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
-import Banner from "../public/images/vong1.jpg";
-import BgHero from "../public/backgrounds/bg-hero1.jpg";
+import Banner from "../public/images/3friend.png";
 import Image from "next/image";
-export default function Hero({ t }: { t: any }) {
+
+interface HeroCopy {
+    hero: {
+        label: string;
+        title1: string;
+        title2: string;
+        title3: string;
+        desc: string;
+        cta: string;
+    };
+}
+
+const facebookPageUrl = "https://www.facebook.com/profile.php?id=61586674563507";
+const whatsappUrl = "https://wa.me/8562096656554";
+
+export default function Hero({ t }: { t: HeroCopy }) {
     return (
-        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-40 overflow-hidden">
+        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-40 overflow-hidden bg-sky-50">
             {/* Background Image/Overlay */}
             <div className="absolute inset-0 z-0">
                 <Image
@@ -15,71 +27,57 @@ export default function Hero({ t }: { t: any }) {
                     className="object-cover"
                     priority
                 />
-                <div className="absolute inset-0 bg-blue-900/80 mix-blend-multiply"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/10"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-700/55 via-blue-500/35 to-white/35"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-sky-100/10 to-white/45"></div>
             </div>
 
             {/* Background Effects - Blobs */}
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-sky-200/45 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/35 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
 
-            <div className="container max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div className="container max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10">
 
                 <div className="relative z-10">
                     <div className="inline-block mb-4">
-                        <span className="text-blue-100 font-medium tracking-wide text-sm uppercase bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/10">{t.hero.label}</span>
+                        <span className="text-white font-medium tracking-wide text-sm uppercase bg-white/20 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/25 shadow-sm">{t.hero.label}</span>
                     </div>
                     <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6 text-white">
                         {t.hero.title1} <br />
                         {t.hero.title2} <br />
-                        <span className="text-blue-200">{t.hero.title3}</span>
+                        <span className="text-sky-100">{t.hero.title3}</span>
                     </h1>
-                    <p className="text-blue-100/90 text-lg mb-8 max-w-lg leading-relaxed">
+                    <p className="text-white/90 text-lg mb-8 max-w-lg leading-relaxed">
                         {t.hero.desc}
                     </p>
-                    <div className="flex gap-4">
-                        <Link href="#contact" className="inline-flex items-center justify-center h-14 px-8 bg-white text-blue-700 font-bold rounded-full transition-all hover:bg-blue-50 hover:shadow-lg shadow-xl shadow-blue-900/20">
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-14 px-8 bg-white text-blue-700 font-bold rounded-full transition-all hover:bg-sky-50 hover:shadow-lg shadow-xl shadow-blue-700/15">
                             {t.hero.cta}
-                        </Link>
-                        {/* <Link href="#services" className="inline-flex items-center justify-center h-14 w-14 rounded-full border border-white/30 text-white hover:bg-white/10 transition-all">
-                            <Play size={20} className="ml-1" />
-                        </Link> */}
+                        </a>
+                        <a href={facebookPageUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-14 px-8 bg-white/20 text-white font-bold rounded-full border border-white/30 backdrop-blur-sm transition-all hover:bg-white/30 hover:shadow-lg">
+                            Facebook
+                        </a>
                     </div>
                 </div>
 
-                <div className="hidden md:block lg:block relative w-full flex justify-center lg:justify-end mt-12 lg:mt-0">
-                    <div className="relative w-full max-w-[500px]">
-                        {/* Blob Shape Mask for Image */}
-                        <div className="relative z-10 w-full aspect-square">
-                            <div className="absolute inset-0 bg-blue-500 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] animate-blob opacity-30 blur-2xl"></div>
+                <div className="relative w-full flex justify-center lg:justify-end mt-4 lg:mt-0">
+                    <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[500px]">
+                        <div className="absolute -inset-4 rounded-[34%_66%_62%_38%/36%_34%_66%_64%] bg-white/45 blur-3xl animate-float"></div>
+                        <div className="absolute -inset-2 rounded-[40px] bg-gradient-to-br from-white/45 via-sky-200/30 to-blue-500/20"></div>
 
-                            <div className="relative w-full h-full rounded-[40px] overflow-hidden border-8 border-white/10 shadow-2xl">
-                                <Image
-                                    src={Banner}
-                                    alt="Hero Banner"
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                />
-                                {/* Play Button Overlay matching reference */}
-                                {/* <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl cursor-pointer hover:scale-110 transition-transform duration-300 group/play">
-                                        <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-blue-600 border-b-[10px] border-b-transparent ml-1"></div>
-                                    </div>
-                                </div> */}
-                            </div>
+                        <div className="relative z-10 w-full aspect-square rounded-[32px] sm:rounded-[40px] overflow-hidden border border-white/35 shadow-2xl shadow-blue-700/20 bg-white/20 backdrop-blur-sm">
+                            <Image
+                                src={Banner}
+                                alt="SKV Group founders"
+                                fill
+                                className="object-cover object-center saturate-105 contrast-100 brightness-110"
+                                sizes="(max-width: 640px) 340px, (max-width: 1024px) 420px, 500px"
+                                priority
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-tr from-blue-700/10 via-transparent to-white/20 mix-blend-soft-light"></div>
+                            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-blue-700/18 to-transparent"></div>
                         </div>
 
-                        {/* Floating elements matching reference style aesthetics */}
-                        {/* <div className="absolute -bottom-8 -left-8 bg-white p-4 rounded-xl shadow-lg z-20 flex items-center gap-3 animate-bounce" style={{ animationDuration: '3s' }}>
-                            <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                                <CheckCircle2 size={20} />
-                            </div>
-                            <div>
-                                <p className="text-xs text-slate-500">Project Completed</p>
-                                <p className="font-bold text-slate-800">100% Success</p>
-                            </div>
-                        </div> */}
+                        <div className="absolute -bottom-3 left-5 right-5 h-10 rounded-full bg-blue-500/20 blur-2xl"></div>
                     </div>
                 </div>
             </div>
