@@ -31,7 +31,7 @@ export default function SystemPreviewTabs() {
             id: 'reports',
             icon: BarChart3,
             title: "ລາຍງານລະອຽດ",
-            desc: "ລາຍງານຍອດຂາຍ, ກຳໄລ-ຂາດທຶນ, ສະຕັອກຄົງເຫຼືອ ແລະ ປະຫວັດການຂາຍ ຢ່າງລະອຽດ.",
+            desc: "ລາຍງານຍອດຂາຍ, ກຳໄລ-ຂາດທຶນ, ສະຕັອກຄົງເຫຼື ອ ແລະ ປະຫວັດການຂາຍ ຢ່າງລະອຽດ.",
             color: "text-green-500",
             border: "border-green-500/50",
             bg: "bg-green-500/10",

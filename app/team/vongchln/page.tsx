@@ -400,7 +400,7 @@ export default function ProfilePage() {
                   Let's Create <span className="text-blue-500">Together</span>
                 </h2>
                 <p className="text-slate-400 text-lg mb-8">
-                  ສົນໃຈຮ່ວມງານສ້າງ Content ຫຼື Campaign? ຕິດຕໍ່ມາໄດ້ທຸກເວລາ
+                  ສົນໃຈຮ່ວມງານສ້າງ Content ຫຼື  Campaign? ຕິດຕໍ່ມາໄດ້ທຸກເວລາ
                 </p>
                 
                 <div className="flex flex-wrap gap-4 justify-center">
