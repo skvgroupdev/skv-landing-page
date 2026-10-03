@@ -29,24 +29,9 @@ export default function PosEquipmentSection() {
               <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
                 ລາຄາອຸປະກອນ POS
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
-                ອຸປະກອນແຕ່ລະຊິ້ນມີ spec ແລະ ລາຄາຕ່າງກັນຕາມລຸ້ນ. ຖືກວາງໄວ້ໃຫ້ເບິ່ງຂໍ້ມູນໄດ້ຊັດເຈນ, ສະດວກສະບາຍ ແລະ ເລືອກອຸປະກອນໃຫ້ເຫມາະກັບຮ້ານຂອງທ່ານ.
-              </p>
+
             </div>
-            <div className="grid gap-3 sm:grid-cols-3">
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-center">
-                <div className="text-xl font-black text-slate-950">8+</div>
-                <div className="mt-1 text-sm text-slate-600">ປະເພດອຸປະກອນ</div>
-              </div>
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-center">
-                <div className="text-xl font-black text-slate-950">ຄວາມສະດວກ</div>
-                <div className="mt-1 text-sm text-slate-600">ສະຫຼຸບການເລືອກງ່າຍ</div>
-              </div>
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-center">
-                <div className="text-xl font-black text-slate-950">ລາຄາປະຈໍາ</div>
-                <div className="mt-1 text-sm text-slate-600">ຂະຫຍາຍຕາມຄວາມຕ້ອງການ</div>
-              </div>
-            </div>
+          
           </div>
         </div>
 

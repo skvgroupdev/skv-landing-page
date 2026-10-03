@@ -1,8 +1,10 @@
 "use client";
 
 import Footer from "../../components/Footer";
+import MyCustomer from "../../components/MyCustomer";
 import Navbar from "../../components/Navbar";
 import PosCtaSection from "../../components/pos/PosCtaSection";
+import PosDemoSection from "../../components/pos/PosDemoSection";
 import PosEquipmentSection from "../../components/pos/PosEquipmentSection";
 import PosFunctionsSection from "../../components/pos/PosFunctionsSection";
 import PosHero from "../../components/pos/PosHero";
@@ -18,11 +20,13 @@ export default function PosPage() {
 
       <main>
         <PosHero />
+        <PosDemoSection />
         <PosScreensSection />
         <PosFunctionsSection />
         <PosWhySection />
         <PosPricingSection />
         <PosEquipmentSection />
+        <MyCustomer />
         <PosCtaSection />
       </main>
 

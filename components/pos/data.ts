@@ -20,6 +20,12 @@ import type { EquipmentItem, FeatureItem, PosScreen, PricingPackage } from "./ty
 export const contactUrl =
   "https://wa.me/8562096656554?text=%E0%BA%AA%E0%BA%B0%E0%BA%9A%E0%BA%B2%E0%BA%8D%E0%BA%94%E0%BA%B5%2C%20%E0%BA%82%E0%BB%89%E0%BA%AD%E0%BA%8D%E0%BA%AA%E0%BA%BB%E0%BA%99%E0%BB%83%E0%BA%88%20SKV%20POS";
 
+export const demoUrl = "https://pos.skvlao.com/";
+export const demoCredentials = {
+  username: "SKVDEMO",
+  password: "12345678",
+};
+
 export const posStats = [
   ["3+", "ຮ້ານທີ່ຕິດຕັ້ງແລ້ວ"],
   ["58/80mm", "ຮອງຮັບໃບບິນ"],
@@ -43,7 +49,7 @@ export const functions: FeatureItem[] = [
     icon: BarChart3,
   },
   {
-    title: "ຈັດການໃບບິນ",
+    title: "ໃບບິນ",
     desc: "ຮອງຮັບໃບບິນ 58mm, 80mm ແລະ ບັນທຶກປະຫວັດການຂາຍສຳລັບກວດສອບ.",
     icon: ReceiptText,
   },
@@ -184,7 +190,7 @@ export const equipment: EquipmentItem[] = [
   {
     name: "ເຄື່ອງພິມໃບບິນ 80mm",
     type: "Receipt Printer",
-    price: "ເລີ່ມຕົ້ນ 950,000 ₭",
+    price: "ເລີ່ມຕົ້ນ 1,150,000 ₭",
     desc: "ໃບບິນອ່ານງ່າຍ ຮອງຮັບການພິມທີ່ລະອຽດ ແລະ ເໝາະກັບຮ້ານທີ່ມີລູກຄ້າຫຼາຍ.",
     icon: ReceiptText,
     image: "/images/equipment-printer-80.png",
@@ -194,7 +200,7 @@ export const equipment: EquipmentItem[] = [
   {
     name: "Cash Drawer",
     type: "Money Drawer",
-    price: "ເລີ່ມຕົ້ນ 490,000 ₭",
+    price: "ເລີ່ມຕົ້ນ 850,000 ₭",
     desc: "ລິ້ນຊັກເກັບເງິນສຳລັບເຄົາເຕີ ເປີດພ້ອມໃບບິນໄດ້ເມື່ອຕໍ່ກັບ printer.",
     icon: Banknote,
     image: "/images/equipment-cash-drawer.png",
@@ -204,21 +210,11 @@ export const equipment: EquipmentItem[] = [
   {
     name: "Label Printer",
     type: "Barcode Label",
-    price: "ເລີ່ມຕົ້ນ 1,200,000 ₭",
+    price: "ເລີ່ມຕົ້ນ 1,450,000 ₭",
     desc: "ພິມສະຕິກເກີບາໂຄດ ແລະ ປ້າຍລາຄາສຳລັບສິນຄ້າທີ່ຍັງບໍ່ມີບາໂຄດ.",
     icon: QrCode,
     image: "/images/equipment-label-printer.png",
     specs: ["ຄວາມລະອຽດ 203dpi", "ຮອງຮັບ sticker barcode", "ຂະໜາດ label ປັບໄດ້", "ຕໍ່ USB"],
     suitableFor: "ຮ້ານມີສິນຄ້າຈຳນວນຫຼາຍ",
-  },
-   {
-    name: "Label Printer",
-    type: "Barcode Label",
-    price: "ເລີ່ມຕົ້ນ 1,200,000 ₭",
-    desc: "ເຄື່ອງພິມໃບບິນຄວາມຮ້້ອນ.",
-    icon: QrCode,
-    image: "/hardware/PRINTER1234.jpg",
-    specs: ["ຂະໜາດ 80mm", "Bluetoot+USB", "ຄວາມກວ້້າງ 72mm"],
-    suitableFor: "ຮ້ານມີສິນຄ້າຈຳນວນຫຼາຍ",
-  },
+  }
 ];
